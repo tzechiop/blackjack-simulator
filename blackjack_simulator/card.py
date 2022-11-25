@@ -31,7 +31,7 @@ class Shoe:
                     unique_cards: List[Card] = None,
                     seed=None):
         if unique_cards is None:
-            unique_cards = UNIQUE_CARDS
+            unique_cards = UNIQUE_CARDS.values()
 
         np.random.seed(seed)
         cards = []
@@ -59,18 +59,18 @@ def bound(low, high, value):
     return max(low, min(high, value))
 
 
-UNIQUE_CARDS = [
-    Card('Two', 2),
-    Card('Three', 3),
-    Card('Four', 4),
-    Card('Five', 5),
-    Card('Six', 6),
-    Card('Seven', 7),
-    Card('Eight', 8),
-    Card('Nine', 9),
-    Card('Ten', 10),
-    Card('Jack', 10),
-    Card('Queen', 10),
-    Card('King', 10),
-    Card('Ace', 11)
-]
+UNIQUE_CARDS = {
+    'Two': Card('Two', 2),
+    'Three': Card('Three', 3),
+    'Four': Card('Four', 4),
+    'Five': Card('Five', 5),
+    'Six': Card('Six', 6),
+    'Seven': Card('Seven', 7),
+    'Eight': Card('Eight', 8),
+    'Nine': Card('Nine', 9),
+    'Ten': Card('Ten', 10),
+    'Jack': Card('Jack', 10),
+    'Queen': Card('Queen', 10),
+    'King': Card('King', 10),
+    'Ace': Card('Ace', 11)
+}

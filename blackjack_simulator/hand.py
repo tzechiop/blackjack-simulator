@@ -57,17 +57,17 @@ class Hand:
         return value
 
     def play(self,
-             table: Table,
+             table: 'Table',
              money: float):
         continue_play = True
         while continue_play and self.hand_status != HandStatus.BUST:
-            action = play_hand(self, table.dealer.hand, money, self.bet)
+            action = play_hand(self, table.dealer.hand, money)
             continue_play, table, money = self.resolve_play(action, table, money)
 
         return table, money
 
     def dealer_play(self,
-                    table):
+                    table: 'Table'):
         for card in self.cards:
             card.hidden = False
 
@@ -78,7 +78,7 @@ class Hand:
 
     def resolve_play(self,
                      action: HandAction,
-                     table: Table,
+                     table: 'Table',
                      money: float = None):
         if action == HandAction.STAND:
             self.hand_status = HandStatus.STAND
